@@ -67,13 +67,13 @@ const Home = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1
-            className="mb-6 font-bold leading-tight text-white"
+            className="mb-6 font-bold leading-tight text-white whitespace-nowrap"
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+              fontSize: "clamp(2.2rem, 4.5vw, 4rem)",
               letterSpacing: "1.5px",
             }}
           >
-            Hi, I'm Nethmi
+            Hi, I'm Nethmi Navoda
           </h1>
 
           <h3
@@ -112,8 +112,8 @@ const Home = () => {
           >
             <motion.button
               style={{
-                fontSize: "clamp(1.1rem, 1.4vw, 1.5rem)",
-                fontWeight: "700",
+                fontSize: "clamp(0.95rem, 1.5vw, 1.25rem)",
+                fontWeight: "600",
                 padding: "18px 56px",
                 marginTop: "30px",
                 backgroundColor: "#000000",
