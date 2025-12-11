@@ -71,64 +71,21 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="relative min-h-[100vh] flex flex-col justify-center py-6 lg:py-8 px-8 lg:px-20 overflow-visible"
+      className="relative min-h-[85vh] flex flex-col justify-center py-6 lg:py-8 px-8 lg:px-20 overflow-visible"
       style={{
         fontFamily: "Poppins, sans-serif",
-        background:
-          "linear-gradient(135deg, #0a0102 0%, #150105 50%, #0d0103 100%)",
       }}
     >
-      {/* Animated Dust Particles */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        {[...Array(50)].map((_, i) => {
-          const size = Math.random() * 4 + 1.5;
-          const initialX = Math.random() * 100;
-          const initialY = Math.random() * 100;
-          const moveDistance = Math.random() * 100 + 50;
-          const angle = Math.random() * Math.PI * 2;
-          const moveX = Math.cos(angle) * moveDistance;
-          const moveY = Math.sin(angle) * moveDistance;
-          const isPink = i % 7 === 0;
-
-          return (
-            <motion.div
-              key={i}
-              className="absolute rounded-full"
-              style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                left: `${initialX}%`,
-                top: `${initialY}%`,
-                backgroundColor: isPink ? "#F4C2C2" : "#FFFFFF",
-                boxShadow: isPink
-                  ? "0 0 10px rgba(244, 194, 194, 0.9)"
-                  : "0 0 8px rgba(255, 255, 255, 0.7)",
-              }}
-              animate={{
-                x: [0, moveX, 0],
-                y: [0, moveY, 0],
-                opacity: [0.5, 1, 0.5],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: Math.random() * 12 + 18,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: Math.random() * 10,
-              }}
-            />
-          );
-        })}
-      </div>
+      {/* particles moved to global Particles component */}
 
       <div className="relative z-10">
         {/* Title */}
         <motion.h2
           // Added mb-24 to push the logos down (Gap between topic and timeline)
-          className="text-white font-bold mb-24 text-center"
+          className="mb-24 font-bold text-center text-white"
           style={{
-            // Restored negative margin to pull the section up towards Home (Reducing top gap)
-            marginTop: "-15rem", 
+            // smaller negative margin to reduce large gap between sections
+            marginTop: "-6rem",
             fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)",
             letterSpacing: "2px",
           }}
@@ -139,7 +96,7 @@ const Education = () => {
         >
           Education
         </motion.h2>
-
+        <br/>
         {/* Timeline Container */}
         <div className="relative w-full max-w-[1200px] mx-auto">
           {/* Horizontal Timeline Bar */}
@@ -151,14 +108,14 @@ const Education = () => {
                 background: "rgba(244, 194, 194, 0.8)",
                 boxShadow: "0 0 10px rgba(244,194,194,0.5)",
                 // Lowered Z-index so it sits BEHIND the logos
-                zIndex: 0, 
+                zIndex: 0,
                 borderRadius: 4,
               }}
             />
 
             {/* Logos Container */}
             {/* Increased Z-index to 10 to sit ON TOP of the line */}
-            <div className="relative flex justify-between items-center py-8 z-10">
+            <div className="relative z-10 flex items-center justify-between py-8">
               {educationData.map((edu, index) => (
                 <motion.div
                   key={edu.id}
@@ -214,7 +171,7 @@ const Education = () => {
                         stiffness: 320,
                         damping: 26,
                       }}
-                      className="absolute left-1/2 transform -translate-x-1/2 z-50"
+                      className="absolute z-50 transform -translate-x-1/2 left-1/2"
                       style={{
                         width: 420,
                         maxWidth: "92vw",
@@ -223,7 +180,7 @@ const Education = () => {
                       }}
                     >
                       <div
-                        className="rounded-xl overflow-hidden"
+                        className="overflow-hidden rounded-xl"
                         style={{
                           background:
                             "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
@@ -244,12 +201,12 @@ const Education = () => {
                             <img
                               src={edu.logo}
                               alt={edu.name}
-                              className="w-full h-full object-cover rounded-full"
+                              className="object-cover w-full h-full rounded-full"
                             />
                           </div>
-                          <div className="flex-1 flex flex-col justify-center min-w-0">
+                          <div className="flex flex-col justify-center flex-1 min-w-0">
                             <h4
-                              className="text-white font-semibold truncate"
+                              className="font-semibold text-white truncate"
                               style={{
                                 fontSize: "1rem",
                                 lineHeight: 1.05,
@@ -303,7 +260,7 @@ const Education = () => {
                         stiffness: 320,
                         damping: 26,
                       }}
-                      className="absolute left-1/2 transform -translate-x-1/2 z-50"
+                      className="absolute z-50 transform -translate-x-1/2 left-1/2"
                       style={{
                         width: 420,
                         maxWidth: "92vw",
@@ -313,7 +270,7 @@ const Education = () => {
                       }}
                     >
                       <div
-                        className="rounded-xl overflow-hidden"
+                        className="overflow-hidden rounded-xl"
                         style={{
                           background:
                             "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
@@ -334,12 +291,12 @@ const Education = () => {
                             <img
                               src={edu.logo}
                               alt={edu.name}
-                              className="w-full h-full object-cover rounded-full"
+                              className="object-cover w-full h-full rounded-full"
                             />
                           </div>
-                          <div className="flex-1 flex flex-col justify-center min-w-0">
+                          <div className="flex flex-col justify-center flex-1 min-w-0">
                             <h4
-                              className="text-white font-semibold truncate"
+                              className="font-semibold text-white truncate"
                               style={{
                                 fontSize: "1rem",
                                 lineHeight: 1.05,
