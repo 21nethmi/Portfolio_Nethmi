@@ -5,7 +5,7 @@ import Nethmi from "../assets/Nethmi.jpg";
 const Home = () => {
   return (
     <section
-      className="relative flex items-center justify-center min-h-screen px-12 py-20 overflow-hidden lg:px-20"
+      className="relative flex items-center justify-center min-h-screen px-12 py-6 overflow-hidden lg:px-20"
       style={{
         fontFamily: "Poppins, sans-serif",
         background:
@@ -17,7 +17,7 @@ const Home = () => {
         className="absolute inset-0 z-0 w-full h-full pointer-events-none"
         style={{ overflow: "visible" }}
       >
-        {[...Array(100)].map((_, i) => {
+        {[...Array(50)].map((_, i) => {
           const size = Math.random() * 4 + 1.5;
           const initialX = Math.random() * 100;
           const initialY = Math.random() * 100;
@@ -87,7 +87,7 @@ const Home = () => {
           </h3>
 
           <p
-            className="mb-20 leading-relaxed text-white"
+            className="mb-4 leading-relaxed text-white"
             style={{
               fontSize: "clamp(0.95rem, 1.5vw, 1.25rem)",
               letterSpacing: "0.3px",

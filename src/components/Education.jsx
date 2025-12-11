@@ -71,7 +71,7 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="relative min-h-[60vh] flex flex-col justify-center py-8 lg:py-12 px-8 lg:px-20 overflow-visible"
+      className="relative min-h-[100vh] flex flex-col justify-center py-6 lg:py-8 px-8 lg:px-20 overflow-visible"
       style={{
         fontFamily: "Poppins, sans-serif",
         background:
@@ -80,7 +80,7 @@ const Education = () => {
     >
       {/* Animated Dust Particles */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        {[...Array(100)].map((_, i) => {
+        {[...Array(50)].map((_, i) => {
           const size = Math.random() * 4 + 1.5;
           const initialX = Math.random() * 100;
           const initialY = Math.random() * 100;
@@ -124,10 +124,12 @@ const Education = () => {
       <div className="relative z-10">
         {/* Title */}
         <motion.h2
-          className="text-white font-bold mb-8 text-center"
+          // Added mb-24 to push the logos down (Gap between topic and timeline)
+          className="text-white font-bold mb-24 text-center"
           style={{
-            marginTop: "-1.6rem",
-            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+            // Restored negative margin to pull the section up towards Home (Reducing top gap)
+            marginTop: "-15rem", 
+            fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)",
             letterSpacing: "2px",
           }}
           initial={{ opacity: 0, y: -30 }}
@@ -144,18 +146,19 @@ const Education = () => {
           <div className="relative">
             {/* The Line */}
             <div
-              className="absolute left-0 right-0 h-2 top-1/2 transform -translate-y-1/2"
+              className="absolute left-0 right-0 h-[2px] top-1/2 transform -translate-y-1/2 w-full"
               style={{
-                background:
-                  "linear-gradient(90deg, rgba(244,194,194,0) 0%, rgba(244,194,194,0.95) 12%, rgba(244,194,194,0.95) 88%, rgba(244,194,194,0) 100%)",
-                boxShadow: "0 0 48px rgba(244,194,194,0.75)",
-                zIndex: 22,
+                background: "rgba(244, 194, 194, 0.8)",
+                boxShadow: "0 0 10px rgba(244,194,194,0.5)",
+                // Lowered Z-index so it sits BEHIND the logos
+                zIndex: 0, 
                 borderRadius: 4,
               }}
             />
 
             {/* Logos Container */}
-            <div className="relative flex justify-between items-center py-8 z-30">
+            {/* Increased Z-index to 10 to sit ON TOP of the line */}
+            <div className="relative flex justify-between items-center py-8 z-10">
               {educationData.map((edu, index) => (
                 <motion.div
                   key={edu.id}
@@ -199,8 +202,9 @@ const Education = () => {
                     />
                   </motion.div>
 
-                  {/* Per-logo popout card (absolute, below the logo) */}
-                  {hoveredLogo?.id === edu.id && (
+                  {/* Popout Cards */}
+                  {hoveredLogo?.id === edu.id &&
+                  (edu.id === "fhs" || edu.id === "convent") ? (
                     <motion.div
                       initial={{ opacity: 0, y: 10, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -214,9 +218,8 @@ const Education = () => {
                       style={{
                         width: 420,
                         maxWidth: "92vw",
-                        ...(hoveredLogo?.placement === "bottom"
-                          ? { top: "100%", marginTop: 12 }
-                          : { bottom: "100%", marginBottom: 12 }),
+                        top: "100%",
+                        marginTop: 12,
                       }}
                     >
                       <div
@@ -250,7 +253,7 @@ const Education = () => {
                               style={{
                                 fontSize: "1rem",
                                 lineHeight: 1.05,
-                                margin:10,
+                                margin: 10,
                               }}
                             >
                               {edu.name}
@@ -290,11 +293,100 @@ const Education = () => {
                         </div>
                       </div>
                     </motion.div>
-                  )}
+                  ) : hoveredLogo?.id === edu.id ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 320,
+                        damping: 26,
+                      }}
+                      className="absolute left-1/2 transform -translate-x-1/2 z-50"
+                      style={{
+                        width: 420,
+                        maxWidth: "92vw",
+                        ...(hoveredLogo?.placement === "bottom"
+                          ? { top: "100%", marginTop: 12 }
+                          : { bottom: "100%", marginBottom: 12 }),
+                      }}
+                    >
+                      <div
+                        className="rounded-xl overflow-hidden"
+                        style={{
+                          background:
+                            "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          backdropFilter: "blur(10px)",
+                          WebkitBackdropFilter: "blur(10px)",
+                          boxShadow:
+                            "0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02)",
+                          padding: "12px 14px",
+                          borderRadius: 12,
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div
+                            className="w-[48px] h-[48px] rounded-full bg-white overflow-hidden flex-shrink-0 border"
+                            style={{ borderColor: "rgba(255,255,255,0.12)" }}
+                          >
+                            <img
+                              src={edu.logo}
+                              alt={edu.name}
+                              className="w-full h-full object-cover rounded-full"
+                            />
+                          </div>
+                          <div className="flex-1 flex flex-col justify-center min-w-0">
+                            <h4
+                              className="text-white font-semibold truncate"
+                              style={{
+                                fontSize: "1rem",
+                                lineHeight: 1.05,
+                                margin: 10,
+                              }}
+                            >
+                              {edu.name}
+                            </h4>
+                            <p
+                              className="text-[#F4C2C2]"
+                              style={{
+                                fontSize: "0.88rem",
+                                margin: 10,
+                              }}
+                            >
+                              {edu.period}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="mt-3"
+                          style={{
+                            borderTop: "1px solid rgba(255,255,255,0.03)",
+                            paddingTop: 10,
+                          }}
+                        >
+                          {edu.details.map((d, i) => (
+                            <p
+                              key={i}
+                              className="text-gray-200"
+                              style={{
+                                fontSize: "0.92rem",
+                                lineHeight: 1.55,
+                                marginTop: i ? 8 : 0,
+                              }}
+                            >
+                              {d}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ) : null}
                 </motion.div>
               ))}
             </div>
-            {/* Centered global popout removed — using per-logo absolute popouts to avoid layout shifts */}
           </div>
         </div>
       </div>
