@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 // Ensure you have these imports correct based on your file structure
 import Html from "../assets/skills/html.png";
 import Css from "../assets/skills/css-3.png";
@@ -22,30 +22,30 @@ import Git from "../assets/skills/github.png";
 import Jira from "../assets/skills/jira.png";
 
 const IconCard = ({ img, label }) => (
-  <div className="flex flex-col items-center gap-10 group">
+  <div className="flex flex-col items-center gap-6 group">
     <div
-      className="flex items-center justify-center rounded-2xl transition-all duration-300 transform group-hover:-translate-y-4 group-hover:shadow-[0_22px_80px_rgba(244,194,194,0.32)]"
+      className="flex items-center justify-center rounded-2xl transition-all duration-300 transform group-hover:-translate-y-3 group-hover:shadow-[0_18px_60px_rgba(244,194,194,0.28)]"
       style={{
-        width: "70px",
-        height: "70px",
-        padding: "12px",
-        margin: 15,
+        width: "56px",
+        height: "56px",
+        padding: "8px",
+        margin: 10,
         background:
           "linear-gradient(145deg, rgba(30,30,30,0.66), rgba(10,10,10,0.92))",
         boxShadow:
-          "10px 12px 50px rgba(0,0,0,0.65), -8px -8px 28px rgba(255,255,255,0.02)",
-        borderTop: "1px solid rgba(255,255,255,0.035)",
-        borderRadius: "16px",
+          "8px 10px 34px rgba(0,0,0,0.6), -6px -6px 20px rgba(255,255,255,0.02)",
+        borderTop: "1px solid rgba(255,255,255,0.03)",
+        borderRadius: "12px",
       }}
     >
       <img
         src={img}
         alt={label}
         style={{
-          width: "64px",
-          height: "64px",
+          width: "48px",
+          height: "48px",
           objectFit: "contain",
-          filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.45))",
+          filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.42))",
         }}
         className="transition-opacity opacity-95 group-hover:opacity-100"
       />
@@ -53,7 +53,7 @@ const IconCard = ({ img, label }) => (
 
     <span
       className="text-gray-400 text-sm font-medium tracking-wide group-hover:text-[#F4C2C2] transition-colors"
-      style={{ marginTop: 12 }}
+      style={{ marginTop: 8, marginBottom: 12 }}
     >
       {label}
     </span>
@@ -63,27 +63,28 @@ const IconCard = ({ img, label }) => (
 const Skills = () => {
   // Styles for the 4 category boxes
   const boxStyle = {
-    background: "rgba(20, 20, 25, 0.4)",
+    background: "rgba(20, 20, 25, 0.36)",
     border: "1px solid rgba(255, 255, 255, 0.03)",
-    backdropFilter: "blur(12px)",
-    borderRadius: "24px",
-    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
-    minHeight: "300px",
+    backdropFilter: "blur(10px)",
+    borderRadius: "20px",
+    boxShadow: "0 8px 28px rgba(0, 0, 0, 0.28)",
+    minHeight: "220px",
   };
 
   return (
     <section
-      className="relative z-10 w-full px-6 py-16 overflow-visible lg:px-20"
+      className="relative z-10 w-full px-4 py-8 overflow-hidden lg:px-16"
       style={{
         fontFamily: "'Poppins', sans-serif",
+        minHeight: "calc(100vh - 120px)",
       }}
     >
       <h2
         className="mb-16 font-bold text-center text-white"
         style={{
           fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)",
-          letterSpacing: "3px",
-          textShadow: "0 0 30px rgba(0,0,0,0.25)",
+          letterSpacing: "2px",
+          //  textShadow: "0 0 30px rgba(0,0,0,0.25)",
         }}
       >
         My Skills
@@ -91,25 +92,23 @@ const Skills = () => {
       <br />
 
       <div
-        className="max-w-[1400px] mx-auto"
+        className="max-w-[1200px] mx-auto"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-          gap: "48px",
-          rowGap: "56px",
+          gap: "28px",
+          rowGap: "32px",
         }}
       >
         {/* 1. Frontend */}
         <div
-          // FIXED: Changed minHeight to 'auto' and added 'pb-16' 
-          // to ensure the card grows with content and text doesn't touch the border
-          className="p-16 pb-16 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
+          className="p-12 pb-12 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
           style={{ ...boxStyle, minHeight: "auto", height: "auto" }}
         >
           <h3 className="text-xl text-[#F4C2C2] font-semibold mb-14 tracking-wider uppercase opacity-90">
             Frontend
           </h3>
-          <div className="grid grid-cols-4 gap-x-20 gap-y-24 justify-items-center">
+          <div className="grid grid-cols-4 gap-x-10 gap-y-12 justify-items-center">
             <IconCard img={Html} label="HTML" />
             <IconCard img={Css} label="CSS" />
             <IconCard img={Js} label="JS" />
@@ -123,8 +122,7 @@ const Skills = () => {
 
         {/* 2. Backend */}
         <div
-          // FIXED: Removed 'justify-center' so Title stays at the top.
-          className="p-16 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
+          className="p-12 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
           style={boxStyle}
         >
           <h3 className="text-xl text-[#F4C2C2] font-semibold mb-14 tracking-wider uppercase opacity-90">
@@ -132,7 +130,7 @@ const Skills = () => {
           </h3>
           {/* Added 'my-auto' to this container. This pushes the logos to the vertical center 
               of the remaining space, while the Title stays at the top. */}
-          <div className="grid grid-cols-3 my-auto gap-x-36 gap-y-28 justify-items-center">
+          <div className="grid grid-cols-3 my-auto gap-x-18 gap-y-20 justify-items-center">
             <IconCard img={Net} label=".NET" />
             <IconCard img={Php} label="PHP" />
             <IconCard img={Mysql} label="MySQL" />
@@ -141,13 +139,13 @@ const Skills = () => {
 
         {/* 3. Tools */}
         <div
-          className="p-16 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
+          className="p-12 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
           style={boxStyle}
         >
           <h3 className="text-xl text-[#F4C2C2] font-semibold mb-14 tracking-wider uppercase opacity-90">
             Tools
           </h3>
-          <div className="grid grid-cols-4 gap-x-28 gap-y-28 justify-items-center">
+          <div className="grid grid-cols-4 gap-x-14 gap-y-16 justify-items-center">
             <IconCard img={Git} label="Git" />
             <IconCard img={Figma} label="Figma" />
             <IconCard img={Canva} label="Canva" />
@@ -157,18 +155,18 @@ const Skills = () => {
 
         {/* 4. Languages */}
         <div
-          className="p-16 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
+          className="p-12 flex flex-col items-center hover:bg-white/[0.02] transition-colors duration-500"
           style={boxStyle}
         >
           <h3 className="text-xl text-[#F4C2C2] font-semibold mb-14 tracking-wider uppercase opacity-90">
             Languages
           </h3>
-          <div className="grid grid-cols-2 my-auto gap-x-40 gap-y-28 justify-items-center">
+          <div className="grid grid-cols-2 my-auto gap-x-18 gap-y-16 justify-items-center">
             <IconCard img={C} label="C" />
             <IconCard img={Java} label="Java" />
           </div>
         </div>
-      </div>
+      </div><br /><br /><br/>
     </section>
   );
 };

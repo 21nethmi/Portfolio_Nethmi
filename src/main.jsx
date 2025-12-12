@@ -8,6 +8,7 @@ import Education from "./components/Education.jsx";
 import Skills from "./components/Skills.jsx";
 import Particles from "./components/Particles.jsx";
 import BackgroundLayer from "./components/BackgroundLayer.jsx";
+import Project from "./components/ProjectSection.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
         <Home />
         <Education />
         <Skills />
+        <Project />
       </div>
     </>
   </StrictMode>
