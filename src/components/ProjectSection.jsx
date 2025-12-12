@@ -72,7 +72,7 @@ export default function ProjectSection() {
   return (
     <section
       id="projects"
-      className="relative flex flex-col justify-center py-8 px-4 lg:px-20 overflow-visible"
+      className="relative flex flex-col justify-center px-4 py-8 overflow-visible lg:px-20"
       style={{
         fontFamily: "Poppins, sans-serif",
         minHeight: "calc(100vh - 120px)",
@@ -80,7 +80,7 @@ export default function ProjectSection() {
     >
       <div className="relative z-10 w-full max-w-[1100px] mx-auto">
         <h2
-          className="text-white font-bold text-center mb-6"
+          className="mb-6 font-bold text-center text-white"
           style={{
             fontSize: "clamp(1.6rem, 3.2vw, 2.6rem)",
             letterSpacing: "2px",
@@ -102,7 +102,7 @@ export default function ProjectSection() {
         <div className="relative flex items-center">
           <button
             onClick={prev}
-            className="absolute left-0 z-20 bg-transparent p-2 rounded-full"
+            className="absolute left-0 z-20 p-2 bg-transparent rounded-full"
             aria-label="previous"
             style={{ top: "50%", transform: "translateY(-50%)", left: "-48px" }}
           >
@@ -131,7 +131,7 @@ export default function ProjectSection() {
             </svg>
           </button>
 
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center w-full">
             <div
               style={{
                 position: "relative",
@@ -178,17 +178,17 @@ export default function ProjectSection() {
                   }}
                 >
                   <div
-                    className="flex flex-col md:flex-row gap-4"
+                    className="flex flex-col gap-4 md:flex-row"
                     style={{ alignItems: "flex-start" }}
                   >
                     <div
-                      className="w-full md:w-5/12 bg-black/60 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center"
+                      className="flex items-center justify-center flex-shrink-0 w-full overflow-hidden rounded-lg md:w-5/12 bg-black/60"
                       style={{ height: "28vh", minHeight: 140, padding: 8 }}
                     >
                       <img
                         src={p.image}
                         alt={p.title}
-                        className="max-w-full max-h-full object-contain p-2 bg-black rounded-lg"
+                        className="object-contain max-w-full max-h-full p-2 bg-black rounded-lg"
                         style={{
                           display: "block",
                           transition: "transform .28s ease",
@@ -198,21 +198,21 @@ export default function ProjectSection() {
                     </div>
                     <div className="flex-1" style={{ paddingBottom: 6 }}>
                       <h3
-                        className="text-white text-xl font-semibold mb-1"
+                        className="mb-1 text-xl font-semibold text-white"
                         style={{ lineHeight: 1.05 }}
                       >
                         {p.title}
                       </h3>
                       {p.role && (
                         <p
-                          className="text-gray-300 mt-1 mb-2"
+                          className="mt-1 mb-2 text-gray-300"
                           style={{ fontSize: "0.92rem" }}
                         >
                           {Array.isArray(p.role) ? p.role.join(" · ") : p.role}
                         </p>
                       )}
                       <p
-                        className="text-gray-300 mt-2 mb-3"
+                        className="mt-2 mb-3 text-gray-300"
                         style={{ fontSize: "0.95rem", lineHeight: 1.45 }}
                       >
                         {p.description}
@@ -254,7 +254,7 @@ export default function ProjectSection() {
 
           <button
             onClick={next}
-            className="absolute right-0 z-20 bg-transparent p-2 rounded-full"
+            className="absolute right-0 z-20 p-2 bg-transparent rounded-full"
             aria-label="next"
             style={{
               top: "50%",
@@ -287,7 +287,8 @@ export default function ProjectSection() {
             </svg>
           </button>
         </div>
-      </div>
+      </div><br/>
+      <br />  <br /><br/><br/>
     </section>
   );
 }
