@@ -2,58 +2,44 @@ import React from "react";
 import { Link } from "react-scroll";
 
 const NavBar = () => {
-  return (
-    <nav className="fixed top-0 w-full bg-[rgba(21,1,5,0.86)] backdrop-blur-md border-b border-[#2b030a] text-white p-4 z-50">
-      <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <h1 className="text-2xl font-bold text-[#FFD700]">Nethmi</h1>
+  // Common styles for the links
+  // Use Poppins via nav container; link sizing, padding and hover use pink accent
+  const navLinkStyle =
+    "cursor-pointer text-base font-medium text-gray-200 px-3 py-1 rounded-sm transition-colors duration-150 hover:text-[#F4C2C2]";
 
-        <div className="space-x-6 hidden md:flex">
-          <Link
-            to="hero"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
+  return (
+    // FIXED: Height is set to h-[60px] to match your original preference
+    // Darker glassmorphism background, stronger blur and shadow, Poppins font applied
+    <nav
+      className="fixed top-0 left-0 w-full h-[60px] bg-[#080306]/85 backdrop-blur-lg border-b border-white/6 z-50 shadow-lg"
+      style={{ fontFamily: "Poppins, sans-serif" }}
+    >
+      {/* Container matches the height (h-full) */}
+      <div className="max-w-7xl mx-auto h-full flex justify-between items-center px-6">
+        {/* LOGO SECTION */}
+        <div className="flex items-center">
+          <span className="text-2xl font-bold text-white select-none">
+            Nethmi Navoda
+          </span>
+        </div>
+
+        <div className="flex items-center gap-10">
+          <Link to="home" smooth duration={500} className={navLinkStyle}>
             Home
           </Link>
-          <Link
-            to="about"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
-            About
+          <Link to="education" smooth duration={500} className={navLinkStyle}>
+            Education
           </Link>
-          <Link
-            to="tech"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
-            Tech
+          <Link to="skills" smooth duration={500} className={navLinkStyle}>
+            Skills
           </Link>
-          <Link
-            to="projects"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
+          <Link to="projects" smooth duration={500} className={navLinkStyle}>
             Projects
           </Link>
-          <Link
-            to="blogs"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
+          <Link to="blogs" smooth duration={500} className={navLinkStyle}>
             Blogs
           </Link>
-          <Link
-            to="contact"
-            smooth
-            duration={500}
-            className="text-lg text-[#e0e0e0] hover:text-[#FFD700] hover:-translate-y-px transition-all duration-150 cursor-pointer"
-          >
+          <Link to="contact" smooth duration={500} className={navLinkStyle}>
             Contact
           </Link>
         </div>

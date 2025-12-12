@@ -39,7 +39,7 @@ const projectData = [
     role: "Hardware Project",
     techStack: "Arduino",
     description:
-      "CricBOT is an IoT-enabled cricket practice machine designed to automate and customize training sessions for players. Built with Arduino and real-time sensor integrations, the system allows users to configure ball types, speeds, delays, and counts through a keypad and LCD interface. A dedicated mobile app provides wireless machine control via Wi-Fi, while multiple safety and error-detection sensors ensure smooth and reliable operation. CricBOT enhances training efficiency with intelligent automation and user-friendly customization.",
+      "CricBOT is an IoT-powered cricket practice machine that automates and customizes player training. Built with Arduino and real-time sensors, it lets users set ball type, speed, delay, and count through a keypad and LCD. A mobile app enables wireless control via Wi-Fi, while safety sensors ensure reliable operation. CricBOT boosts training efficiency with smart automation and easy customization.",
     image: CricbotImg,
     projectLink:
       "https://www.linkedin.com/posts/nethmi-navoda-336664278_i-am-thrilled-to-share-the-completion-of-activity-7236568603200798720-6Jl1",
@@ -138,10 +138,11 @@ export default function ProjectSection() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-                height: "calc(100vh - 300px)",
+                minHeight: 520,
+                paddingBottom: 48,
               }}
             >
-              <AnimatePresence mode="sync">
+              <AnimatePresence initial={false}>
                 <motion.div
                   key={p.title}
                   custom={dir}
@@ -149,17 +150,25 @@ export default function ProjectSection() {
                   animate="center"
                   exit="exit"
                   variants={{
-                    enter: (d) => ({ x: d > 0 ? 320 : -320, opacity: 0 }),
+                    enter: (d) => ({ x: d > 0 ? 360 : -360, opacity: 0 }),
                     center: { x: 0, opacity: 1 },
-                    exit: (d) => ({ x: d > 0 ? -320 : 320, opacity: 0 }),
+                    exit: (d) => ({ x: d > 0 ? -360 : 360, opacity: 0 }),
                   }}
                   transition={{
-                    x: { type: "spring", stiffness: 260, damping: 28 },
-                    opacity: { duration: 0.16 },
+                    x: {
+                      type: "tween",
+                      duration: 0.45,
+                      ease: [0.22, 0.1, 0.12, 0.96],
+                    },
+                    opacity: { duration: 0.22 },
                   }}
                   whileHover={{ scale: 1.02, y: -6 }}
-                  className="w-full max-w-[720px] overflow-hidden"
+                  className="w-full max-w-[720px]"
                   style={{
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    margin: "0 auto",
                     background:
                       "linear-gradient(135deg, rgba(10,12,18,0.88), rgba(6,4,6,0.65))",
                     border: "1px solid rgba(255,255,255,0.06)",
@@ -169,12 +178,7 @@ export default function ProjectSection() {
                       "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.04)",
                     padding: 20,
                     borderRadius: 20,
-                    maxHeight: "calc(100vh - 320px)",
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    marginLeft: "auto",
-                    marginRight: "auto",
+                    willChange: "transform, opacity",
                   }}
                 >
                   <div
@@ -183,16 +187,18 @@ export default function ProjectSection() {
                   >
                     <div
                       className="flex items-center justify-center flex-shrink-0 w-full overflow-hidden rounded-lg md:w-5/12 bg-black/60"
-                      style={{ height: "28vh", minHeight: 140, padding: 8 }}
+                      style={{ height: "180px", minHeight: 140, padding: 8 }}
                     >
                       <img
                         src={p.image}
                         alt={p.title}
-                        className="object-contain max-w-full max-h-full p-2 bg-black rounded-lg"
+                        className="object-contain w-auto h-full p-2 bg-black rounded-lg"
                         style={{
                           display: "block",
                           transition: "transform .28s ease",
                           borderRadius: 12,
+                          maxWidth: "100%",
+                          willChange: "transform",
                         }}
                       />
                     </div>
@@ -219,13 +225,7 @@ export default function ProjectSection() {
                       </p>
                       <div
                         className="mt-3"
-                        style={{
-                          fontSize: "0.92rem",
-                          whiteSpace: "nowrap",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          color: "#F4C2C2",
-                        }}
+                        style={{ fontSize: "0.92rem", color: "#F4C2C2" }}
                       >
                         {p.techStack &&
                           (Array.isArray(p.techStack)
@@ -287,8 +287,11 @@ export default function ProjectSection() {
             </svg>
           </button>
         </div>
-      </div><br/>
-      <br />  <br /><br/><br/>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
   );
 }

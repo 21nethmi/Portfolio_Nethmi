@@ -10,6 +10,7 @@ import Particles from "./components/Particles.jsx";
 import BackgroundLayer from "./components/BackgroundLayer.jsx";
 import Project from "./components/ProjectSection.jsx";
 import Blog from "./components/Blog.jsx";
+import Footer from "./components/Footer.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
         <Skills />
         <Project />
         <Blog />
+        <Footer />
       </div>
     </>
   </StrictMode>
