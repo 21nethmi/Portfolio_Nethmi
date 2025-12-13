@@ -72,10 +72,10 @@ export default function ProjectSection() {
   return (
     <section
       id="projects"
-      className="relative flex flex-col justify-center px-4 py-8 overflow-visible lg:px-20"
+      className="relative min-h-screen flex flex-col px-4 pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-visible lg:px-20"
       style={{
         fontFamily: "Poppins, sans-serif",
-        minHeight: "calc(100vh - 120px)",
+        scrollMarginTop: "100px",
       }}
     >
       <div className="relative z-10 w-full max-w-[1100px] mx-auto">
@@ -87,7 +87,8 @@ export default function ProjectSection() {
           }}
         >
           Project Highlights
-        </h2> <br/>
+        </h2>{" "}
+        <br />
         <p
           className="text-gray-300 text-center max-w-[900px] mx-auto mb-8"
           style={{ lineHeight: 1.35, fontSize: "clamp(0.9rem,1.8vw,1.1rem)" }}
@@ -98,7 +99,6 @@ export default function ProjectSection() {
         </p>
         <br />
         <br />
-
         <div className="relative flex items-center">
           <button
             onClick={prev}
@@ -171,11 +171,11 @@ export default function ProjectSection() {
                     margin: "0 auto",
                     background:
                       "linear-gradient(135deg, rgba(10,12,18,0.88), rgba(6,4,6,0.65))",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
+                    border: "2px solid rgba(255,255,255,0.12)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
                     boxShadow:
-                      "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.04)",
+                      "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.08), inset 0 1px 0 rgba(255,255,255,0.08)",
                     padding: 20,
                     borderRadius: 20,
                     willChange: "transform, opacity",
@@ -204,28 +204,35 @@ export default function ProjectSection() {
                     </div>
                     <div className="flex-1" style={{ paddingBottom: 6 }}>
                       <h3
-                        className="mb-1 text-xl font-semibold text-white"
-                        style={{ lineHeight: 1.05 }}
+                        className="text-xl font-semibold text-white"
+                        style={{ lineHeight: 1.05, marginBottom: "12px" }}
                       >
                         {p.title}
                       </h3>
                       {p.role && (
                         <p
-                          className="mt-1 mb-2 text-gray-300"
-                          style={{ fontSize: "0.92rem" }}
+                          className="text-gray-300"
+                          style={{ fontSize: "0.92rem", marginBottom: "16px" }}
                         >
                           {Array.isArray(p.role) ? p.role.join(" · ") : p.role}
                         </p>
                       )}
                       <p
-                        className="mt-2 mb-3 text-gray-300"
-                        style={{ fontSize: "0.95rem", lineHeight: 1.45 }}
+                        className="text-gray-300"
+                        style={{
+                          fontSize: "0.95rem",
+                          lineHeight: 1.45,
+                          marginBottom: "16px",
+                        }}
                       >
                         {p.description}
                       </p>
                       <div
-                        className="mt-3"
-                        style={{ fontSize: "0.92rem", color: "#F4C2C2" }}
+                        style={{
+                          fontSize: "0.92rem",
+                          color: "#F4C2C2",
+                          marginBottom: "16px",
+                        }}
                       >
                         {p.techStack &&
                           (Array.isArray(p.techStack)
@@ -233,7 +240,7 @@ export default function ProjectSection() {
                             : p.techStack)}
                       </div>
                       {p.projectLink && (
-                        <div className="mt-4">
+                        <div>
                           <a
                             href={p.projectLink}
                             target="_blank"

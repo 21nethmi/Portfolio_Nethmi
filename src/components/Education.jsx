@@ -71,7 +71,7 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="relative min-h-[85vh] flex flex-col justify-center py-6 lg:py-8 px-8 lg:px-20 overflow-visible"
+      className="relative min-h-screen flex flex-col justify-center py-16 lg:py-20 px-8 lg:px-20 overflow-visible"
       style={{
         fontFamily: "Poppins, sans-serif",
       }}
@@ -96,7 +96,7 @@ const Education = () => {
         >
           Education
         </motion.h2>
-        <br/>
+        <br />
         {/* Timeline Container */}
         <div className="relative w-full max-w-[1200px] mx-auto">
           {/* Horizontal Timeline Bar */}

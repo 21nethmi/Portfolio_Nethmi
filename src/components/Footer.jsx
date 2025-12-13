@@ -8,7 +8,7 @@ export default function Footer() {
     <>
       <section
         id="contact"
-        className="relative flex flex-col items-center px-4 pt-24 pb-20 lg:px-20"
+        className="relative flex flex-col items-center justify-center min-h-screen px-4 pt-24 pb-20 lg:px-20"
         style={{ fontFamily: "Poppins, sans-serif" }}
       >
         <div className="w-full max-w-[1100px] mx-auto">
@@ -20,7 +20,7 @@ export default function Footer() {
             }}
           >
             Contact Me
-          </h2>
+          </h2><br/>
 
           <div className="mx-auto w-full max-w-[820px]">
             <div
@@ -28,11 +28,11 @@ export default function Footer() {
               style={{
                 background:
                   "linear-gradient(135deg, rgba(10,12,18,0.88), rgba(6,4,6,0.65))",
-                border: "1px solid rgba(255,255,255,0.06)",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
+                border: "2px solid rgba(255,255,255,0.12)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
                 boxShadow:
-                  "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.04)",
+                  "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.08), inset 0 1px 0 rgba(255,255,255,0.08)",
                 padding: 18,
                 margin: 15,
                 borderRadius: 20,
@@ -40,22 +40,21 @@ export default function Footer() {
             >
               <div style={{ paddingTop: 14 }}>
                 <h4
-                  className="mb-2 text-xl font-semibold text-white text-center"
+                  className="mb-2 text-xl font-semibold text-center text-white"
                   style={{ lineHeight: 1.05 }}
                 >
                   Get in touch
-                </h4>
+                </h4> <br/>
                 <p
-                  className="mb-8 text-gray-300 text-center"
+                  className="mb-8 text-center text-gray-300"
                   style={{ fontSize: "0.98rem", lineHeight: 1.45 }}
                 >
                   I’m available for freelance work and collaboration. Reach out
                   via phone or email.
                 </p>
-               <br/>
-                
-                <div className="flex flex-col gap-5 w-fit mx-auto mb-8">
-                  
+                <br />
+
+                <div className="flex flex-col gap-5 mx-auto mb-8 w-fit">
                   {/* Phone Number */}
                   <div className="flex items-center gap-4">
                     <div
@@ -78,10 +77,15 @@ export default function Footer() {
                         <path
                           d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.07 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.78 3.03a2 2 0 0 1-.45 2.11L8.91 10.91a16 16 0 0 0 6 6l1.05-1.05a2 2 0 0 1 2.11-.45c.96.4 1.98.66 3.03.78A2 2 0 0 1 22 16.92z"
                           fill="#fff"
-                        /> 
+                        />
                       </svg>
                     </div>
-                    <span className="text-sm md:text-base text-gray-200" style={{margin:10}}>+94 715787627</span>
+                    <span
+                      className="text-sm text-gray-200 md:text-base"
+                      style={{ margin: 10 }}
+                    >
+                      +94 715787627
+                    </span>
                   </div>
 
                   {/* Email */}
@@ -112,7 +116,11 @@ export default function Footer() {
                     <a
                       href="mailto:nnavoda21@gmail.com"
                       className="text-sm md:text-base !text-white no-underline hover:opacity-80 transition-opacity"
-                      style={{ textDecoration: "none", color: "white",margin:10 }}
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        margin: 10,
+                      }}
                     >
                       nnavoda21@gmail.com
                     </a>
@@ -143,10 +151,15 @@ export default function Footer() {
                         />
                       </svg>
                     </div>
-                    <span className="text-sm md:text-base text-gray-200" style={{margin:10}}>Horana</span>
+                    <span
+                      className="text-sm text-gray-200 md:text-base"
+                      style={{ margin: 10 }}
+                    >
+                      Horana
+                    </span>
                   </div>
                 </div>
-               <br/>
+                <br />
                 {/* Social Media Icons */}
                 {/* CHANGE: Increased gap to gap-8 for more space */}
                 <div className="flex items-center justify-center gap-8 mt-6 mb-2 ">
@@ -160,14 +173,14 @@ export default function Footer() {
                         background: "rgba(244,194,194,0.12)",
                         padding: 8,
                         borderRadius: 8,
-                        margin:8,
+                        margin: 8,
                       }}
                     >
                       <img
                         src={LinkedInIcon}
                         alt="LinkedIn"
                         className="object-contain"
-                        style={{ width: 34, height: 34 ,borderRadius:8}}
+                        style={{ width: 34, height: 34, borderRadius: 8 }}
                       />
                     </div>
                   </a>
@@ -181,14 +194,19 @@ export default function Footer() {
                         background: "rgba(244,194,194,0.12)",
                         padding: 8,
                         borderRadius: 8,
-                        margin:8,
+                        margin: 8,
                       }}
                     >
                       <img
                         src={GitHubIcon}
                         alt="GitHub"
                         className="object-contain"
-                        style={{ width: 34, height: 34, opacity: 0.95 , borderRadius:8}} 
+                        style={{
+                          width: 34,
+                          height: 34,
+                          opacity: 0.95,
+                          borderRadius: 8,
+                        }}
                       />
                     </div>
                   </a>
@@ -202,14 +220,14 @@ export default function Footer() {
                         background: "rgba(244,194,194,0.12)",
                         padding: 8,
                         borderRadius: 8,
-                        margin:8,
+                        margin: 8,
                       }}
                     >
                       <img
                         src={MediumIcon}
                         alt="Medium"
                         className="object-contain"
-                        style={{ width: 34, height: 34 , borderRadius:8}}
+                        style={{ width: 34, height: 34, borderRadius: 8 }}
                       />
                     </div>
                   </a>
@@ -219,7 +237,8 @@ export default function Footer() {
           </div>
         </div>
       </section>
-      <br /> <br /><br />
+      <br /> <br />
+      <br />
       <footer className="w-full py-6 text-gray-300 bg-transparent">
         <div className="max-w-5xl px-6 mx-auto text-sm text-center">
           © 2025 Nethmi Navoda. All rights reserved.

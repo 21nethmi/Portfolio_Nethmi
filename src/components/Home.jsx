@@ -5,6 +5,7 @@ import Nethmi from "../assets/Nethmi.jpg";
 const Home = () => {
   return (
     <section
+      id="home"
       className="relative flex items-center justify-center min-h-screen px-12 py-6 overflow-hidden lg:px-20"
       style={{
         fontFamily: "Poppins, sans-serif",
@@ -29,7 +30,6 @@ const Home = () => {
           >
             Hi, I'm Nethmi Navoda
           </h1>
-
           <h3
             className="text-[#F4C2C2] font-medium mb-6 leading-relaxed"
             style={{
@@ -38,8 +38,8 @@ const Home = () => {
             }}
           >
             Full-Stack Developer | Software Engineer | Tech Explorer
-          </h3>
-
+          </h3>{" "}
+          <br />
           <p
             className="mb-4 leading-relaxed text-white"
             style={{
@@ -58,7 +58,7 @@ const Home = () => {
             versatility and continuous learning drive my growth as a software
             engineer.
           </p>
-
+          <br />
           <a
             href="https://drive.google.com/uc?export=download&id=1VcIFrxCS3zr0PCYTFgNGy6wOYzMPyCVn"
             target="_blank"
@@ -70,24 +70,28 @@ const Home = () => {
                 fontWeight: "600",
                 padding: "18px 56px",
                 marginTop: "30px",
-                backgroundColor: "#000000",
                 color: "#FFFFFF",
-                border: "none",
+                border: "2px solid #F4C2C2",
                 borderRadius: "50px",
                 cursor: "pointer",
                 boxShadow:
-                  "0 25px 50px rgba(0, 0, 0, 0.8), 0 10px 30px rgba(0, 0, 0, 0.6)",
+                  "0 20px 40px rgba(244, 194, 194, 0.25), 0 10px 25px rgba(244, 194, 194, 0.15), inset 0 1px 0 rgba(255,255,255,0.1)",
                 letterSpacing: "1px",
                 textTransform: "uppercase",
                 position: "relative",
                 overflow: "hidden",
-                background: "linear-gradient(145deg, #1a1a1a, #000000)",
+                background:
+                  "linear-gradient(145deg, rgba(244, 194, 194, 0.15), rgba(244, 194, 194, 0.08))",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
               }}
               whileHover={{
                 scale: 1.08,
-                backgroundColor: "#F4C2C2",
+                background: "linear-gradient(145deg, #F4C2C2, #E8B0B0)",
+                color: "#000000",
+                borderColor: "#FFFFFF",
                 boxShadow:
-                  "0 20px 40px rgba(244, 194, 194, 0.3), 0 0 20px rgba(244, 194, 194, 0.2)",
+                  "0 25px 50px rgba(244, 194, 194, 0.4), 0 0 30px rgba(244, 194, 194, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
               transition={{

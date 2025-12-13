@@ -14,11 +14,11 @@ const BlogCard = ({ img, title, description, link }) => (
       style={{
         background:
           "linear-gradient(135deg, rgba(10,12,18,0.88), rgba(6,4,6,0.65))",
-        border: "1px solid rgba(255,255,255,0.06)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
+        border: "2px solid rgba(255,255,255,0.12)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
         boxShadow:
-          "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.04)",
+          "0 40px 90px rgba(2,2,6,0.9), 0 10px 30px rgba(244,194,194,0.08), inset 0 1px 0 rgba(255,255,255,0.08)",
         padding: 18,
         margin: 15,
         borderRadius: 20,
@@ -33,13 +33,13 @@ const BlogCard = ({ img, title, description, link }) => (
           style={{ lineHeight: 1.05 }}
         >
           {title}
-        </h4>
+        </h4> <br/>
         <p
           className="mb-4 text-gray-300"
           style={{ fontSize: "0.98rem", lineHeight: 1.45 }}
         >
           {description}
-        </p>
+        </p> <br/>
         <div>
           <a
             href={link}
@@ -76,9 +76,8 @@ export default function Blog() {
 
   return (
     <section
-      id="blog"
-      // INCREASED GAP: Changed mt-28 to mt-40 and lg:mt-32 to lg:mt-48
-      className="relative flex flex-col justify-center px-6 py-10 mt-40 lg:px-20 lg:mt-48"
+      id="blogs"
+      className="relative flex flex-col justify-center min-h-screen px-6 pt-24 pb-16 overflow-hidden lg:pt-28 lg:pb-20 lg:px-20"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       <div className="relative z-10 w-full max-w-[1100px] mx-auto">
@@ -95,7 +94,7 @@ export default function Blog() {
         >
           My Blogs
         </motion.h2>
-        <br/> <br/>
+        <br /> <br />
         <div className="flex flex-wrap justify-center gap-8">
           {blogs.map((b) => (
             <BlogCard
@@ -107,7 +106,11 @@ export default function Blog() {
             />
           ))}
         </div>
-      </div><br /><br /><br /><br />
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
   );
 }
