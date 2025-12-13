@@ -13,16 +13,16 @@ const Home = () => {
     >
       {/* particles moved to global Particles component */}
 
-      <div className="relative w-full max-w-[1450px] mx-auto flex flex-row items-center justify-between gap-10 lg:gap-18 z-10">
+      <div className="relative w-full max-w-[1450px] mx-auto flex flex-row items-center justify-between gap-10 lg:gap-18 z-10 home-stack">
         {/* LEFT: Text Content */}
         <motion.div
-          className="flex-1 max-w-[750px]"
+          className="flex-1 max-w-[750px] home-text"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1
-            className="mb-6 font-bold leading-tight text-white whitespace-nowrap"
+            className="mb-6 font-bold leading-tight text-white lg:whitespace-nowrap"
             style={{
               fontSize: "clamp(2.2rem, 4.5vw, 4rem)",
               letterSpacing: "1.5px",
@@ -104,10 +104,9 @@ const Home = () => {
             </motion.button>
           </a>
         </motion.div>
-
         {/* RIGHT: Image */}
         <motion.div
-          className="flex-shrink-0"
+          className="flex-shrink-0 home-image"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

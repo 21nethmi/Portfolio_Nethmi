@@ -15,13 +15,120 @@ body,
   width: 100%;
 }
 
-
 body {
   background: #150105;
   color: #ffffff;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
+/* Desktop-first: only apply stacking and sizing for small screens */
+@media (max-width: 767px) {
+  /* Stack home content vertically on small screens */
+  .home-stack {
+    flex-direction: column-reverse;
+    gap: 1.25rem;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .home-text {
+    max-width: 92%;
+    /* left-align on mobile as requested */
+    text-align: left;
+    padding-left: 6px;
+  }
+
+  /* Reduce/center the circular profile image on small screens */
+  .home-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .home-image > div {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .home-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+
+  /* Make navbar hamburger visible and desktop links hidden are handled via Tailwind classes (md:hidden / hidden md:flex)
+     We keep a compact navbar spacing on small screens */
+  nav .max-w-7xl > div {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* desktop margin helpers (use classes in JSX) */
+  .ml-desktop {
+    margin-left: 8px;
+  }
+  .mr-desktop {
+    margin-right: 8px;
+  }
+
+  /* Ensure mobile hamburger/menu only appears on small screens even if Tailwind classes fail */
+  .mobile-hamburger {
+    display: flex !important;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: block !important;
+  }
+}
+
+/* Default desktop margins for nav (used on large screens) */
+.ml-desktop {
+  margin-left: 48px;
+}
+.mr-desktop {
+  margin-right: 48px;
+}
+
+/* Hide mobile menu/hamburger on larger screens as a safeguard (large screens >= 1024px)
+   and show desktop nav there. This keeps tablets using the mobile hamburger. */
+@media (min-width: 1024px) {
+  .mobile-hamburger {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex !important;
+  }
+}
+
+/* Additional safeguard: prevent nav / mobile overlay from causing horizontal overflow */
+nav,
+.mobile-menu {
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Collapse desktop margins on narrow screens to avoid horizontal scrolling */
+@media (max-width: 767px) {
+  .ml-desktop {
+    margin-left: 8px !important;
+  }
+  .mr-desktop {
+    margin-right: 8px !important;
+  }
+  .max-w-7xl {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
