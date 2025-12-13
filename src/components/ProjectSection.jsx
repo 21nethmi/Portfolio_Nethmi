@@ -87,7 +87,7 @@ export default function ProjectSection() {
           }}
         >
           Project Highlights
-        </h2>
+        </h2> <br/>
         <p
           className="text-gray-300 text-center max-w-[900px] mx-auto mb-8"
           style={{ lineHeight: 1.35, fontSize: "clamp(0.9rem,1.8vw,1.1rem)" }}

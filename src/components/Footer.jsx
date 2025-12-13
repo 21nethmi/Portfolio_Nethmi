@@ -167,7 +167,7 @@ export default function Footer() {
                         src={LinkedInIcon}
                         alt="LinkedIn"
                         className="object-contain"
-                        style={{ width: 28, height: 28 }}
+                        style={{ width: 34, height: 34 ,borderRadius:8}}
                       />
                     </div>
                   </a>
@@ -188,7 +188,7 @@ export default function Footer() {
                         src={GitHubIcon}
                         alt="GitHub"
                         className="object-contain"
-                        style={{ width: 28, height: 28, opacity: 0.95 }}
+                        style={{ width: 34, height: 34, opacity: 0.95 , borderRadius:8}} 
                       />
                     </div>
                   </a>
@@ -209,7 +209,7 @@ export default function Footer() {
                         src={MediumIcon}
                         alt="Medium"
                         className="object-contain"
-                        style={{ width: 28, height: 28 }}
+                        style={{ width: 34, height: 34 , borderRadius:8}}
                       />
                     </div>
                   </a>

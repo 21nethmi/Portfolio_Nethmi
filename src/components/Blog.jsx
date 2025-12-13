@@ -95,7 +95,7 @@ export default function Blog() {
         >
           My Blogs
         </motion.h2>
-
+        <br/> <br/>
         <div className="flex flex-wrap justify-center gap-8">
           {blogs.map((b) => (
             <BlogCard
