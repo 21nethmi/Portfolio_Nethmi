@@ -132,3 +132,21 @@ nav,
     padding-right: 12px !important;
   }
 }
+
+/* Force Education view separation to avoid accidental style collisions */
+@media (min-width: 1024px) {
+  .edu-desktop {
+    display: block !important;
+  }
+  .edu-mobile {
+    display: none !important;
+  }
+}
+@media (max-width: 1023px) {
+  .edu-desktop {
+    display: none !important;
+  }
+  .edu-mobile {
+    display: block !important;
+  }
+}

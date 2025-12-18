@@ -97,8 +97,8 @@ const Education = () => {
           Education
         </motion.h2>
         <br />
-        {/* Timeline Container */}
-        <div className="relative w-full max-w-[1200px] mx-auto">
+        {/* Desktop/Tablet (>= lg): existing horizontal timeline preserved */}
+        <div className="relative w-full max-w-[1200px] mx-auto hidden lg:block edu-desktop">
           {/* Horizontal Timeline Bar */}
           <div className="relative">
             {/* The Line */}
@@ -344,6 +344,131 @@ const Education = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Mobile-only (< lg): vertical timeline with overlay cards */}
+        <div className="relative w-full max-w-[620px] mx-auto block lg:hidden edu-mobile">
+          {/* Vertical line */}
+          <div
+            className="absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 pointer-events-none"
+            style={{
+              background: "rgba(244, 194, 194, 0.95)",
+              boxShadow: "0 0 12px rgba(244,194,194,0.6)",
+              zIndex: 1,
+              borderRadius: 4,
+            }}
+          />
+
+          {/* Logos stacked vertically */}
+          <div className="relative z-20 flex flex-col items-center py-12">
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={edu.id}
+                className="relative flex flex-col items-center mb-14 last:mb-0"
+                ref={(el) => (logoRefs.current[edu.id] = el)}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.12, type: "spring", stiffness: 220 }}
+                onMouseEnter={() => setHoveredLogo({ id: edu.id, placement: "center" })}
+                onMouseLeave={() => setHoveredLogo(null)}
+                onTouchStart={() =>
+                  setHoveredLogo((prev) =>
+                    prev?.id === edu.id ? null : { id: edu.id, placement: "center" }
+                  )
+                }
+              >
+                {/* Logo circle */}
+                <motion.div
+                  className="relative z-30 w-[56px] h-[56px] rounded-full bg-white flex items-center justify-center cursor-pointer"
+                  style={{
+                    boxShadow:
+                      hoveredLogo?.id === edu.id
+                        ? "0 0 30px rgba(244, 194, 194, 1), 0 8px 30px rgba(0, 0, 0, 0.6)"
+                        : "0 4px 20px rgba(0, 0, 0, 0.5)",
+                    border: "2px solid",
+                    borderColor: hoveredLogo?.id === edu.id ? "#F4C2C2" : "#ffffff",
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 22 }}
+                >
+                  <img
+                    src={edu.logo}
+                    alt={edu.name}
+                    className="w-[54px] h-[54px] object-cover rounded-full"
+                  />
+                </motion.div>
+
+                {/* Connector segment to next item (mobile only) */}
+                {index < educationData.length - 1 && (
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 top-[56px] w-[3px]"
+                    style={{
+                      height: 48,
+                      background: "rgba(244, 194, 194, 0.9)",
+                      boxShadow: "0 0 10px rgba(244,194,194,0.55)",
+                      borderRadius: 2,
+                      zIndex: 2,
+                    }}
+                  />
+                )}
+
+                {/* Overlay card centered on the logo (in front) */}
+                {hoveredLogo?.id === edu.id && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 26 }}
+                    className="absolute z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    style={{ width: "min(92vw, 380px)" }}
+                  >
+                    <div
+                      className="overflow-hidden rounded-xl"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04))",
+                        border: "1px solid rgba(255,255,255,0.12)",
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                        boxShadow: "0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06)",
+                        padding: "12px 14px",
+                        borderRadius: 12,
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-[44px] h-[44px] rounded-full bg-white overflow-hidden flex-shrink-0 border"
+                          style={{ borderColor: "rgba(255,255,255,0.12)" }}
+                        >
+                          <img
+                            src={edu.logo}
+                            alt={edu.name}
+                            className="object-cover w-full h-full rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col justify-center flex-1 min-w-0">
+                          <h4 className="font-semibold text-white truncate" style={{ fontSize: "1rem", lineHeight: 1.05, margin: 10 }}>
+                            {edu.name}
+                          </h4>
+                          <p className="text-[#F4C2C2]" style={{ fontSize: "0.88rem", margin: 10 }}>
+                            {edu.period}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="mt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 10 }}>
+                        {edu.details.map((d, i) => (
+                          <p key={i} className="text-gray-200" style={{ fontSize: "0.92rem", lineHeight: 1.55, marginTop: i ? 8 : 0 }}>
+                            {d}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
