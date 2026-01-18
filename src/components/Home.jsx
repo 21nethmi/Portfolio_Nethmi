@@ -60,7 +60,7 @@ const Home = () => {
           </p>
           <br />
           <a
-            href="https://drive.google.com/uc?export=download&id=1VcIFrxCS3zr0PCYTFgNGy6wOYzMPyCVn"
+            href="https://drive.google.com/uc?export=download&id=1fShc6_kueQFk05cIflx-xmBKHHO4GH-9"
             target="_blank"
             rel="noopener noreferrer"
           >
